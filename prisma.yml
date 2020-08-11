@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/jeongho-a7e8e2/prismagram/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
