@@ -7,4 +7,20 @@ Instagram clone with Express + Node + React and React Native
 하지만 GraphQL을 사용하게 되면, 프론트에서 쿼리를 만들어 서버에 요청을 합니다.
 그러면 GraphQL 서버에서는 필요한 데이터에 대해서만 반환하여 응답합니다.
 
+## User Stories
+
+- [ ] Like / Unlike a photo
+- [ ] Comment on a photo
+- [ ] Search by user
+- [ ] Search by location
+- [ ] See user profile
+- [ ] Follow / Unfollow User
+- [ ] See the full photo
+- [ ] Edit my profile
+- [ ] Create account
+  - [ ] Log in
+- [ ] Upload a photo
+- [ ] Edit the photo (Delete)
+- [ ] See the feed
+
 
