@@ -14,13 +14,14 @@ export const generateSecret = () => {
 };
 
 console.log("유저이름 : " + process.env.SENDGRID_USERNAME);
+console.log("비밀번호 : " + process.env.SENDGRID_PASSWORD);
 
 export const sendMail = (email) => {
     
     const options = {
         auth: {
-            api_user: "jeongho0812@gmail.com",
-            api_key: ""
+            api_user: process.env.SENDGRID_USERNAME,
+            api_key: process.env.SENDGRID_PASSWORD
         }
     };
 
