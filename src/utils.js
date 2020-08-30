@@ -13,9 +13,6 @@ export const generateSecret = () => {
 
 };
 
-console.log("유저이름 : " + process.env.SENDGRID_USERNAME);
-console.log("비밀번호 : " + process.env.SENDGRID_PASSWORD);
-
 export const sendMail = (email) => {
     
     const options = {
@@ -35,7 +32,7 @@ export const sendSecretMail = (address, secret) => {
         from: "jeongho0812@gmail.com",
         to: address,
         subject: "Login Secret for Prismagram",
-        html:  `Hello! Your login secret it ${secret}.<br/>Copy paste on the app/website to login`
+        html:  `Hello! Your login secret is <b>${secret}</b>.<br/>Copy paste on the app/website to login`
     }
 
     return sendMail(email);
