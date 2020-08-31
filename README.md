@@ -21,6 +21,5 @@ Instagram clone with Express + Node + React and React Native
 - [ ] Log in
 - [ ] Upload a photo
 - [ ] Edit the photo (Delete)
-- [ ] See the feed
 
 
