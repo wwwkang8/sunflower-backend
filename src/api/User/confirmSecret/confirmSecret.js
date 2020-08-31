@@ -1,4 +1,5 @@
 import { prisma } from "../../../../generated/prisma-client";
+import { generateToken } from "../../../utils";
 
 export default{
 
@@ -15,8 +16,9 @@ export default{
 
             //조회한 user의 loginSecret과 입력받은 secret이 같은지 확인
             if(user.loginSecret === secret){
+                const token = generateToken(user.id);
                 // JWT
-                return "TOKEN";
+                return token;
             }else {
                 throw Error("Wrong email/secret combination");
             }

@@ -7,11 +7,11 @@ dotenv.config({path: path.resolve(__dirname, ".env") });
 
 const jwtOptions = {
     jwtFromRequest: JwtStrategy.ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secret: process.env.JWT_SECRET
+    secretOrKey: process.env.JWT_SECRET
 
 };
 
-const verifyUser = (payload, done) => {
+const verifyUser = async (payload, done) => {
     try{
         const user = await prisma.user({id: payload.id})
         if(user != null){
