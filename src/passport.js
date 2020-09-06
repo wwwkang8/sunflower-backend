@@ -1,12 +1,13 @@
 import passport from "passport";
-import JwtStrategy from "passport-jwt";
+import { Strategy, ExtractJwt } from "passport-jwt";
 import dotenv from "dotenv";
 import path from "path";
 import { prisma } from "../generated/prisma-client";
 dotenv.config({path: path.resolve(__dirname, ".env") });
 
+
 const jwtOptions = {
-    jwtFromRequest: JwtStrategy.ExtractJwt.fromAuthHeaderAsBearerToken(),
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.JWT_SECRET
 
 };
@@ -24,4 +25,14 @@ const verifyUser = async (payload, done) => {
     }
 };
 
-passport.use(new JwtStrategy(jwtOptions, verifyUser));
+export const authenticateJwt = (req, res, next) =>
+    passport.authenticate("jwt", {sessions: false}, (error, user) => {
+        if(user){
+            req.user = user;
+        }
+        next();
+    })(req, res, next);
+
+
+passport.use(new Strategy(jwtOptions, verifyUser));
+passport.initialize();
