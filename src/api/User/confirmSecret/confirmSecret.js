@@ -6,9 +6,7 @@ export default{
     //작업 타입 : Mutation(생성, 수정, 삭제 등의 작업)
     Mutation: {
         //graphql에서 정의한 함수명
-        confirmSecret: async(_, args, {request}) => {
-
-            console.log(request);
+        confirmSecret: async(_, args) => {
 
             //graphql에서 정의한 매개변수(email, secret)
             const{ email, secret } = args;
