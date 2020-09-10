@@ -5,7 +5,8 @@ type User {
   firstName: String
   lastName: String
   fullName: String
-  amIFollowing: Boolean!
+  isFollowing: Boolean!
+  isSelf: Boolean!
   bio: String
   following: [User!]!
   followers: [User!]!
@@ -58,6 +59,6 @@ type Message{
 }
 
 type UserProfile {
-  user: User
+  user: User!
   posts: [Post!]!
 }
