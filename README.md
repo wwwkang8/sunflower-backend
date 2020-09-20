@@ -9,17 +9,18 @@ Instagram clone with Express + Node + React and React Native
 
 ## User Stories
 
-- [X] Like / Unlike a photo
-- [X] Comment on a photo
-- [X] Search by user
-- [ ] Search by location
-- [ ] See user profile
-- [ ] Follow / Unfollow User
-- [ ] See the full photo
-- [ ] Edit my profile
-- [ ] Create account
-- [ ] Log in
-- [ ] Upload a photo
-- [ ] Edit the photo (Delete)
+- [x] Like / Unlike a photo
+- [x] Comment on a photo
+- [x] Search by user
+- [x] Search by location
+- [x] See user profile
+- [x] Follow / Unfollow User
+- [x] See the full photo
+- [x] Upload a photo	- [x] Upload a photo
+- [x] Edit the photo (Delete)	- [x] Edit the photo (Delete)
+- [ ] See the feed	- [x] See the feed
+- [ ] See rooms	- [ ] See rooms
+- [ ] See room	- [ ] See room
+- [ ] Send private Message	- [ ] Send private Message
 
 
