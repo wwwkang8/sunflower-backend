@@ -9,7 +9,8 @@ export default {
                 , email
                 , firstName
                 , lastName
-                , bio } = args;
+                , bio
+                , avatar } = args;
 
                 const { user } = request;
 
