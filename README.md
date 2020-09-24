@@ -18,9 +18,9 @@ Instagram clone with Express + Node + React and React Native
 - [x] See the full photo
 - [x] Upload a photo	- [x] Upload a photo
 - [x] Edit the photo (Delete)	- [x] Edit the photo (Delete)
-- [ ] See the feed	- [x] See the feed
-- [ ] See rooms	- [ ] See rooms
-- [ ] See room	- [ ] See room
+- [x] See the feed	- [x] See the feed
+- [x] See rooms	- [ ] See rooms
+- [x] See room	- [ ] See room
 - [ ] Send private Message	- [ ] Send private Message
 
 
