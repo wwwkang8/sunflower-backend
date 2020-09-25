@@ -21,6 +21,6 @@ Instagram clone with Express + Node + React and React Native
 - [x] See the feed	- [x] See the feed
 - [x] See rooms	- [ ] See rooms
 - [x] See room	- [ ] See room
-- [ ] Send private Message	- [ ] Send private Message
+- [x] Send private Message	- [ ] Send private Message
 
 
