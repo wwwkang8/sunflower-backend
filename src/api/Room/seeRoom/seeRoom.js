@@ -1,5 +1,4 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { ROOM_FRAGMENT } from "../../../fragments";
 
 export default {
     Query: {
@@ -15,7 +14,7 @@ export default {
 
             if(canSee){
 
-                const room = await prisma.room({ id }).$fragment(ROOM_FRAGMENT);
+                const room = await prisma.room({ id });
 
                 return room;
 
