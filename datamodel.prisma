@@ -74,3 +74,48 @@ type Message {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+type Sogeting {
+  id: ID! @id
+  title: String!
+  intro: String!
+  questions: [Question!]!
+  user: User! @relation(name: "SogetingUser")
+  count: Int!
+}
+
+type Resume {
+  id: ID! @id
+  questions: [Question!]! @relation(name:"ResumeQuestions")
+  answers: [Answer!]!
+  user: User! @relation(name:"ResumeWriter")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Question {
+  id: ID! @id
+  question: String!
+  questioner: User! @relation(name:"Questioner")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Answer {
+  id: ID! @id
+  answer: String!
+  question: Question! @relation(name:"AnswerofQuestion")
+  answerer: User! @relation(name:"Answerer")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Match {
+  id: ID! @id
+  state: String!
+  sogeting: Sogeting! @relation(name:"MatchOfSogeting")
+  suggester: User! @relation(name:"Suggester")
+  receiver: User! @relation(name:"Receiver")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
