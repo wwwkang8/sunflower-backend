@@ -79,15 +79,17 @@ type Sogeting {
   id: ID! @id
   title: String!
   intro: String!
-  questions: [Question!]!
+  questions: [Question!]! @relation(name:"SogetingQuestion")
+  resumes: [Resume!]! @relation(name:"SogetingResume")
   user: User! @relation(name: "SogetingUser")
-  count: Int!
+  count: Int! @default(value: 0)
 }
 
 type Resume {
   id: ID! @id
   questions: [Question!]! @relation(name:"ResumeQuestions")
-  answers: [Answer!]!
+  answers: [Answer!]! @relation(name:"ResumeAnswer")
+  sogeting: Sogeting @relation(name:"SogetingResume")
   user: User! @relation(name:"ResumeWriter")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -97,6 +99,7 @@ type Question {
   id: ID! @id
   question: String!
   questioner: User! @relation(name:"Questioner")
+  sogeting: Sogeting! @relation(name:"SogetingQuestion")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
@@ -105,6 +108,7 @@ type Answer {
   id: ID! @id
   answer: String!
   question: Question! @relation(name:"AnswerofQuestion")
+  resume: Resume! @relation(name:"ResumeAnswer")
   answerer: User! @relation(name:"Answerer")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
