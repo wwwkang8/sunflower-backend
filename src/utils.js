@@ -30,9 +30,8 @@ export const sendMail = (email) => {
 
 export const sendSecretMail = (address, secret) => {
     const email = {
-        from: "jeongho0812@gmail.com",
-        //to: address, 잠시동안
-        to: "wwwkang8@gmail.com",
+        from: process.env.FROM_MAIL,
+        to: address,
         subject: "Login Secret for Prismagram",
         html:  `Hello! Your login secret is <b>${secret}</b>.<br/>Copy paste on the app/website to login`
     }
