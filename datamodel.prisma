@@ -2,7 +2,7 @@ type User {
   id: ID! @id
   avatar: String
     @default(
-      value: "https://scontent-hkg3-1.cdninstagram.com/vp/51ea9f9……74447047_1561961433825017856_n.jpg?_nc_ht=scontent-hkg3-1.cdninstagram.com"
+      value: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5vpNZQPBoqaH23kPlU_SVPYGB6kO1cGD_Gw&usqp=CAU"
     )
   userName: String! @unique
   email: String! @unique
@@ -71,6 +71,55 @@ type Message {
   from: User! @relation(name: "From")
   to: User! @relation(name: "To")
   room: Room!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Sogeting {
+  id: ID! @id
+  title: String!
+  intro: String!
+  questions: [Question!]! @relation(name:"SogetingQuestion")
+  resumes: [Resume!]! @relation(name:"SogetingResume")
+  user: User! @relation(name: "SogetingUser")
+  count: Int! @default(value: 0)
+}
+
+type Resume {
+  id: ID! @id
+  questions: [Question!]! @relation(name:"ResumeQuestions")
+  answers: [Answer!]! @relation(name:"ResumeAnswer")
+  sogeting: Sogeting @relation(name:"SogetingResume")
+  user: User! @relation(name:"ResumeWriter")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Question {
+  id: ID! @id
+  question: String!
+  questioner: User! @relation(name:"Questioner")
+  sogeting: Sogeting! @relation(name:"SogetingQuestion")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Answer {
+  id: ID! @id
+  answer: String!
+  question: Question! @relation(name:"AnswerofQuestion")
+  resume: Resume! @relation(name:"ResumeAnswer")
+  answerer: User! @relation(name:"Answerer")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Match {
+  id: ID! @id
+  state: String!
+  sogeting: Sogeting! @relation(name:"MatchOfSogeting")
+  suggester: User! @relation(name:"Suggester")
+  receiver: User! @relation(name:"Receiver")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
